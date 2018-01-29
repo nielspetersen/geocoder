@@ -34,6 +34,7 @@ module Geocoder::Lookup
         if OpenSSL::SSL.const_defined?('OP_NO_COMPRESSION')
           options |= OpenSSL::SSL::OP_NO_COMPRESSION
         end
+	      options.merge!(ssl_version: :TLSv1_2)
         @ssl_context.set_params({options: options})
       }
     end
